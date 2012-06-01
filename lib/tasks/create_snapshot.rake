@@ -20,7 +20,7 @@ require 'rubygems'
 require 'yaml'
 require 'browshot'
 require 'net/http'
-require 'rmagick'
+require 'RMagick'
 include Magick
 
 settings = YAML.load_file(File.expand_path('../../../config/settings.yml', __FILE__))
@@ -32,7 +32,7 @@ namespace :create_snapshot do
 	
 	desc "Create a snapshot of the JP_ Widget"
 	task :snap_it do
-		screenshot = browshot.screenshot_create('http://www.codemis.com/jp_widget.html', {});
+		screenshot = browshot.screenshot_create('http://www.codemis.com/jp_widget.html', {:cache => 3600});
 		screenshot_id = screenshot["id"]
 		puts "Got an ID: #{screenshot_id}"
 		Rake::Task['create_snapshot:screenshot_status'].execute
@@ -72,7 +72,7 @@ namespace :create_snapshot do
 		puts "Cropping final image #{final_file}"
 		widget_file = File.expand_path('../../../images/widget.png', __FILE__)
 		image = Image.read(final_file).first
-		widget = image.crop!(1,1,216,354)
+		widget = image.crop!(0,0,217,355)
 		widget.write(widget_file)
 	end
 	

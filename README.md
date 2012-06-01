@@ -10,6 +10,15 @@ To run this script,  from terminal use the following command:
 
 `rake create_snapshot:snap_it -f lib/tasks/create_snapshot.rake`
 
+Notes
+-----
+
+To run Bundler on a shared host, use the following command:
+
+`bundle install --gemfile /directory/of/your/Gemfile --path /directory/to/vendor/gems`
+
+If you choose to install your gems in a local directory,  make sure to run the rake command with bundle exec.
+
 Requirements
 ------------
 
