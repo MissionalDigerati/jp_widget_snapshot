@@ -1,7 +1,7 @@
 Joshua Project Widget Snapshot Rake Script
 ==========================================
 
-This Rakefile generates a snapshot of the [Joshua Project's](http://www.joshuaproject.net/) widget and crops the image appropriately.  The purpose is to circumvent the restrictions on WordPress.com websites that only allow static images in the widget area.
+This Rakefile generates a snapshot of the [Joshua Project's](http://www.joshuaproject.net/) widget and crops the image appropriately.  The purpose is to circumvent the restrictions on WordPress.com websites that only allow static images in the widget area.  To see the final result,  check out the following [image](http://widget.missionaldigerati.org/widget.png).
 
 Usage
 -----
