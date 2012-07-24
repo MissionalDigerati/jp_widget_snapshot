@@ -32,7 +32,7 @@ namespace :create_snapshot do
 	
 	desc "Create a snapshot of the JP_ Widget"
 	task :snap_it do
-		screenshot = browshot.screenshot_create('http://www.codemis.com/jp_widget.html', {:cache => 3600});
+		screenshot = browshot.screenshot_create('http://www.codemis.com/jp_widget.html', {:cache => 3600, :instance_id => 27});
 		screenshot_id = screenshot["id"]
 		puts "Got an ID: #{screenshot_id}"
 		Rake::Task['create_snapshot:screenshot_status'].execute

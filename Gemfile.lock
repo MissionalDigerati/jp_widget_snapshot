@@ -13,6 +13,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  browshot (= 1.9.0)
+  browshot
   rake
   rmagick
