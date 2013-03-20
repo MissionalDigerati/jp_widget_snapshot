@@ -1,2 +1,7 @@
 browshot_api:
   key: YOUR-KEY
+ftp_access: # REMOVE if you do not want to FTP it
+  username: USERNAME
+  server: SERVER
+  password: PASSWORD
+  directory: DIRECTORY

@@ -20,6 +20,7 @@ require 'rubygems'
 require 'yaml'
 require 'browshot'
 require 'net/http'
+require 'net/ftp'
 require 'RMagick'
 include Magick
 
@@ -28,6 +29,7 @@ screenshot_id = '433106'
 browshot = Browshot.new(settings['browshot_api']['key'])
 screenshot_file = ''
 final_file = File.expand_path('../../../images/screenshot.png', __FILE__)
+widget_file = File.expand_path('../../../images/widget.png', __FILE__)
 namespace :create_snapshot do
 	
 	desc "Create a snapshot of the JP_ Widget"
@@ -70,10 +72,17 @@ namespace :create_snapshot do
 	# crop the image to the correct size
 	task :crop_image do
 		puts "Cropping final image #{final_file}"
-		widget_file = File.expand_path('../../../images/widget.png', __FILE__)
 		image = Image.read(final_file).first
 		widget = image.crop!(0,0,217,355)
 		widget.write(widget_file)
+		Rake::Task['create_snapshot:move_file'].execute unless settings['ftp_access'].nil?
+	end
+
+	# ftp the file over
+	task :move_file do
+		Net::FTP.open(settings['ftp_access']['server'], settings['ftp_access']['username'], settings['ftp_access']['password']) do |ftp|
+		  	ftp.putbinaryfile(widget_file, "#{settings['ftp_access']['directory']}widget.png")
+		end
 	end
 	
 end
