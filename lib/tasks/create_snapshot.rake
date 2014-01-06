@@ -73,7 +73,7 @@ namespace :create_snapshot do
 	task :crop_image do
 		puts "Cropping final image #{final_file}"
 		image = Image.read(final_file).first
-		widget = image.crop!(0,0,217,355)
+		widget = image.crop!(0,0,217,380)
 		widget.write(widget_file)
 		Rake::Task['create_snapshot:move_file'].execute unless settings['ftp_access'].nil?
 	end
