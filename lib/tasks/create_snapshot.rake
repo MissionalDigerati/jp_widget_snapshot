@@ -88,7 +88,7 @@ namespace :create_snapshot do
 			end
 		elsif settings['settings']['move_file'] === true
 			puts "Moving the file to the new location."
-			FileUtils.mv(widget_file, File.join(settings['move_locally']['directory'], 'widget.png'))
+			FileUtils.copy(widget_file, File.join(settings['move_locally']['directory'], 'widget.png'))
 		end
 			
 	end
