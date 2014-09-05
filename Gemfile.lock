@@ -1,11 +1,11 @@
 GEM
   remote: http://rubygems.org/
   specs:
-    browshot (1.9.1)
+    browshot (1.14.0)
       json
       url
-    json (1.7.3)
-    rake (0.9.2.2)
+    json (1.8.1)
+    rake (10.3.2)
     rmagick (2.13.3)
     url (0.3.2)
 
@@ -13,6 +13,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  browshot (~> 1.9.1)
+  browshot (~> 1.14.0)
   rake
   rmagick
