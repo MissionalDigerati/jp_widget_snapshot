@@ -18,6 +18,7 @@
 #
 require 'rubygems'
 require 'yaml'
+require 'fileutils'
 require 'browshot'
 require 'net/http'
 require 'net/ftp'
@@ -80,9 +81,16 @@ namespace :create_snapshot do
 
 	# ftp the file over
 	task :move_file do
-		Net::FTP.open(settings['ftp_access']['server'], settings['ftp_access']['username'], settings['ftp_access']['password']) do |ftp|
-		  	ftp.putbinaryfile(widget_file, "#{settings['ftp_access']['directory']}widget.png")
+		if settings['settings']['use_ftp'] === true
+			puts "FTPing the file over."
+			Net::FTP.open(settings['ftp_access']['server'], settings['ftp_access']['username'], settings['ftp_access']['password']) do |ftp|
+			  	ftp.putbinaryfile(widget_file, "#{settings['ftp_access']['directory']}widget.png")
+			end
+		elsif settings['settings']['move_file'] === true
+			puts "Moving the file to the new location."
+			FileUtils.mv(widget_file, File.join(settings['move_locally']['directory'], 'widget.png'))
 		end
+			
 	end
 	
 end
