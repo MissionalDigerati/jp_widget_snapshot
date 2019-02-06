@@ -1,12 +1,6 @@
 browshot_api:
   key: YOUR-KEY
 settings:
-    use_ftp: false
     move_file: true
-ftp_access: # REMOVE if you do not want to FTP it
-  username: USERNAME
-  server: SERVER
-  password: PASSWORD
-  directory: DIRECTORY
 move_locally:
     directory: DIRECTORY
