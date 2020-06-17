@@ -4,9 +4,9 @@ GEM
     browshot (1.14.0)
       json
       url
-    json (1.8.1)
-    rake (10.3.2)
-    rmagick (2.13.3)
+    json (2.3.0)
+    rake (13.0.1)
+    rmagick (4.1.2)
     url (0.3.2)
 
 PLATFORMS
@@ -16,3 +16,6 @@ DEPENDENCIES
   browshot (~> 1.14.0)
   rake
   rmagick
+
+BUNDLED WITH
+   2.1.4
