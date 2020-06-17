@@ -22,7 +22,7 @@ require 'fileutils'
 require 'browshot'
 require 'net/http'
 require 'net/ftp'
-require 'RMagick'
+require 'rmagick'
 include Magick
 
 settings = YAML.load_file(File.expand_path('../../../config/settings.yml', __FILE__))
